@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#하노이 함수
+void hanoi(int n, char a, char b, char c) #원반의 개수, 기둥 번호
+{
+	if (n == 1)
+		printf("%c %c\n", a, c);
+	else
+	{
+		hanoi(n - 1, a, c, b);
+		printf("%c %c\n", a, c);
+		hanoi(n - 1, b, a, c);
+	}
+}
+
+int main(void)
+{
+	int n, count = 1;
+	scanf("%d", &n);
+	for (int i = 0; i < n; i++)
+		count *= 2;
+	printf("%d\n", count - 1);
+	hanoi(n, '1', '2', '3');
+}
