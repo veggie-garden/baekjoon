@@ -147,20 +147,20 @@ int main(void)
 ```
 ## 실행
 코드를 실행시키면 다음과도 같은 실행 순서로 실행될 것입니다:
-  1. hanoi(3, 'a', 'b', 'c')
-  2. hanoi(2, 'a', 'c', 'b')
-  3. hanoi(1, 'a', 'b', 'c')
-  4. printf("%c %c\n", from, to)
-  5. printf("%c %c\n", from, to);
-  6. hanoi(1, 'c', 'a', 'b')
-  7. printf("%c %c\n", from, to);
-  8. printf("%c %c\n", from, to);
-  9. hanoi(2, 'b', 'a', 'c')
-  10. hanoi(1, 'b', 'c', 'a')
-  11. printf("%c %c\n", from, to);
-  12. printf("%c %c\n", from, to);
-  13. hanoi(1, 'a', 'b', 'c')
-  14. printf("%c %c\n", from, to);
+  1. hanoi(3, 'a', 'b', 'c') 			//hanoi(3, 'a', 'b', 'c')
+  2. hanoi(2, 'a', 'c', 'b') 			//hanoi(n-1, from, to, by)
+  3. hanoi(1, 'a', 'b', 'c')			//hanoi(n-1, from, to, by)
+  4. printf("%c %c\n", from, to); return (0); 	//n이 1이 되었기에 if문의 printf를 실행, 3번 종료
+  5. printf("%c %c\n", from, to); 		//2번으로 돌아감. 2번 종료. 그 밑의 printf를 실행
+  6. hanoi(1, 'c', 'a', 'b') 			//hanoi(n-1, by, from, to)
+  7. printf("%c %c\n", from, to); return (0);	//n이 1이 되었기에 if문의 printf를 실행, 6번 종료
+  8. printf("%c %c\n", from, to);		//1번으로 되돌아감. 1번 종료. 그 밑의 printf를 실행. 
+  9. hanoi(2, 'b', 'a', 'c')			//hanoi(n-1, by, from, to)
+  10. hanoi(1, 'b', 'c', 'a')			//hanoi(n-1, from, to, by)
+  11. printf("%c %c\n", from, to); return (0);	//n이 1이 되었기에 if문의 printf를 실행, 10번 종료
+  12. printf("%c %c\n", from, to);		//9번으로 되돌아감. 9번 종료. 그 밑의 printf를 실행.
+  13. hanoi(1, 'a', 'b', 'c')			//hanoi(n-1, by, from, to)
+  14. printf("%c %c\n", from, to); return (0);  //n이 1이 되었기에 if문의 printf를 실행. 13번 종료.
   
   정리하자면:
   
