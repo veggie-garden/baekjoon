@@ -144,4 +144,4 @@ int main(void)
   14. printf("%c %c\n", from, to);
   
   정리하자면:
-  ![alt text](C:\Users\chels\OneDrive\바탕 화면\developer\baekjoon\11729.png )
+  ![alt text](/11729.png )
