@@ -31,7 +31,8 @@
   3. by에 있는 가장 큰 원반을 제외한 모든 원반(n - 1)개를 to로 옮긴다.
   
 같은 과정을 반복하기 때문에 재귀를 사용해서 풀면 됩니다.
-  
+
+## 문제 
 그럼 규칙을 알았으니, 함수를 만들어 봅시다.
 ```c
 void hanoi(int n, char from, char by, char to)
@@ -144,4 +145,4 @@ int main(void)
   14. printf("%c %c\n", from, to);
   
   정리하자면:
-  ![alt text](/recursive/11729/11729.png){: width="40%" height="40%"}
+  <img src="/recursive/11729/11729.png" width="40%" height="40%">
