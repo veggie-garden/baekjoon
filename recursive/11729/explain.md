@@ -60,16 +60,16 @@ if (n == 1)
 단계별로 정리하겠습니다.
 
 1. from에 있는 가장 큰 원반을 제외한 모든 원반(n - 1)개를 by로 옮긴다.
-  hanoi(int n, char from, char by, char to) 함수를 설명하자면, n개의 원반을, 이 기둥에서, 이 기둥을 통해, 이 기둥으로 옮긴다 라고 할 수 있죠. 
-  우리는 그럼 from에 있는 n-1개의 원반을, by로 옮겨야 합니다. 그럼 아래와 같이 정리할 수 있습니다.
-  from에 있는 가장 큰 원반을 제외한 모든 원반(n - 1)개를 by로 옮긴다 => ```c hanoi(n - 1, from, to, by)```
+hanoi(int n, char from, char by, char to) 함수를 설명하자면, n개의 원반을, 이 기둥에서, 이 기둥을 통해, 이 기둥으로 옮긴다 라고 할 수 있죠. 
+우리는 그럼 from에 있는 n-1개의 원반을, by로 옮겨야 합니다. 그럼 아래와 같이 정리할 수 있습니다.
+from에 있는 가장 큰 원반을 제외한 모든 원반(n - 1)개를 by로 옮긴다 => ```c hanoi(n - 1, from, to, by)```
 2. from에 있는 가장 큰 원반을 to로 옮긴다.
-  위의 코드를 통해서 n-1개의 원반이 모두 by로 옮겨졌습니다.
-  그래서 마지막 가장 큰 원반만 남았습니다. 옮기죠.
-  ```c printf("%c %c\n", from, to); ```
+위의 코드를 통해서 n-1개의 원반이 모두 by로 옮겨졌습니다.
+그래서 마지막 가장 큰 원반만 남았습니다. 옮기죠.
+```c printf("%c %c\n", from, to); ```
 3. by에 있는 가장 큰 원반을 제외한 모든 원반(n - 1)개를 to로 옮긴다.
-  가장 큰 원반을 옮겼으니, 우리는 다시 n-1개의 원반을 to로 옮겨야 합니다. 옮깁시다.
-  ```c hanoi(n - 1, by, from, to); ```
+가장 큰 원반을 옮겼으니, 우리는 다시 n-1개의 원반을 to로 옮겨야 합니다. 옮깁시다.
+```c hanoi(n - 1, by, from, to); ```
   
 정리하면 이렇게 됩니다:
 ```c
@@ -86,10 +86,10 @@ else
 void hanoi(int n, char from, char by, char to)
 {
 	if (n == 1)
-  {
+  	{
 		printf("%c %c\n", from, to);
-    return (0);
-  }
+    		return (0);
+  	}
 	else
 	{
 		hanoi(n - 1, from, to, by);
@@ -144,4 +144,4 @@ int main(void)
   14. printf("%c %c\n", from, to);
   
   정리하자면:
-  ![alt text](/.png )
+  ![alt text](C:\Users\chels\OneDrive\바탕 화면\developer\baekjoon\11729.png )
