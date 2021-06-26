@@ -144,4 +144,4 @@ int main(void)
   14. printf("%c %c\n", from, to);
   
   정리하자면:
-  ![alt text](/recursive/11729/11729.png){: width="40%"}
+  ![alt text](/recursive/11729/11729.png){: width="40%" height="40%"}
