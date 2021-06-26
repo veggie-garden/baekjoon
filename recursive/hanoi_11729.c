@@ -1,8 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-#하노이 함수
-void hanoi(int n, char a, char b, char c) #원반의 개수, 기둥 번호
+void hanoi(int n, char a, char b, char c)
 {
 	if (n == 1)
 		printf("%c %c\n", a, c);
