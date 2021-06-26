@@ -145,4 +145,5 @@ int main(void)
   14. printf("%c %c\n", from, to);
   
   정리하자면:
-  <img src="/recursive/11729/11729.png" width="40%" height="40%">
+  
+  <img src="/recursive/11729/11729.png" width="60%">
