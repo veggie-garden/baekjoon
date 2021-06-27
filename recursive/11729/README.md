@@ -1,5 +1,8 @@
 # 문제 설명
+[문제 링크](https://www.acmicpc.net/problem/11729)
+
 하노이의 탑은 기둥에 꽂혀있는 원판들을 다른 기둥으로 옮기는 게임입니다.
+
 하노이의 탑은 규칙이 있는데:
   1. 한 번에 하나의 원반만 옮길 수 있다.
   2. 작은 원반 위에 큰 원반을 올릴 수 없다.
@@ -47,13 +50,13 @@ void hanoi(int n, char from, char by, char to)
 ```
 
 재귀 함수에서 중요한 것은 탈출 조건입니다. 
-1이 이동하던, 2가 이동하던, 어떤 원반들이 이동하고 마지막에 1번도 이동하지 않은 원반이 이동했을 때, 즉 모든 원반이 한 번이라도 이동했을 때, 재귀를 탈출하게 만들면 됩니다.
+단계별로 옮길 수 있는 원반이 하나만 남았을 때, 재귀를 탈출하게 만드면 됩니다.
 이 말을 정리하자면, n - 1개의 원반을 계속해서 이동하며 재귀를 구성한 것이기 때문에, 이동할 수 있는 원반이 1개가 남았을 경우, 즉 n이 1이 된다면 탈출하게 만들면 됩니다. 
 ```c
 if (n == 1)
 {
 	printf("%c %c\n", from, to);
-	return (0);
+	return;
 }
 ```
 
@@ -104,7 +107,7 @@ void hanoi(int n, char from, char by, char to)
 	if (n == 1)
   	{
 		printf("%c %c\n", from, to);
-    		return (0);
+		return;
   	}
 	else
 	{
@@ -130,7 +133,7 @@ int main(void)
 	 * 한 원반을 다른 기둥으로 옮길 때 걸리는 최소 이동 횟수가 2^n - 1 번이다. 
 	 * 그럼 원반이 3개라면 총 2^3 -1 번 이동한다. 
 	 * 그래서 for문으로 2의 제곱을 구한 후, -1을 하는 것이다.
-   * 더 자세히 알고 싶다면 하노이의 탑 이동 순서라고 검색
+	 * 더 자세히 알고 싶다면 하노이의 탑 이동 순서라고 검색
 	 
 	 * 만약 for문으로 쓰기 싫다면 pow라는 함수가 있다. math.h 라는 라이브러리를 불러오면 사용할 수 있다. 
 	 * 사용 예시
@@ -138,26 +141,26 @@ int main(void)
 	   print("%d\n", count);
 	*/
 	
-	hanoi(n, 'a', 'b', 'c');
+	hanoi(n, '1', '2', '3');
 	return (0);
 }
 ```
 ## 실행
 코드를 실행시키면 다음과도 같은 실행 순서로 실행될 것입니다:
-  1. hanoi(3, 'a', 'b', 'c')
-  2. hanoi(2, 'a', 'c', 'b')
-  3. hanoi(1, 'a', 'b', 'c')
-  4. printf("%c %c\n", from, to)
-  5. printf("%c %c\n", from, to);
-  6. hanoi(1, 'c', 'a', 'b')
-  7. printf("%c %c\n", from, to);
-  8. printf("%c %c\n", from, to);
-  9. hanoi(2, 'b', 'a', 'c')
-  10. hanoi(1, 'b', 'c', 'a')
-  11. printf("%c %c\n", from, to);
-  12. printf("%c %c\n", from, to);
-  13. hanoi(1, 'a', 'b', 'c')
-  14. printf("%c %c\n", from, to);
+  1. hanoi(3, '1', '2', '3') 			//hanoi(3, '1', '2', '3')
+  2. hanoi(2, '1', '3', '2') 			//hanoi(n-1, from, to, by)
+  3. hanoi(1, '1', '2', '3')			//hanoi(n-1, from, to, by)
+  4. printf("%c %c\n", from, to); return; 	//n이 1이 되었기에 if문의 printf를 실행, 3번 종료
+  5. printf("%c %c\n", from, to); 		//2번으로 돌아감. 2번 종료. 그 밑의 printf를 실행
+  6. hanoi(1, '3', '1', '2') 			//hanoi(n-1, by, from, to)
+  7. printf("%c %c\n", from, to); return;	//n이 1이 되었기에 if문의 printf를 실행, 6번 종료
+  8. printf("%c %c\n", from, to);		//1번으로 되돌아감. 1번 종료. 그 밑의 printf를 실행. 
+  9. hanoi(2, '2', '1', '3')			//hanoi(n-1, by, from, to)
+  10. hanoi(1, '2', '3', '1')			//hanoi(n-1, from, to, by)
+  11. printf("%c %c\n", from, to); return;	//n이 1이 되었기에 if문의 printf를 실행, 10번 종료
+  12. printf("%c %c\n", from, to);		//9번으로 되돌아감. 9번 종료. 그 밑의 printf를 실행.
+  13. hanoi(1, '1', '2', '3')			//hanoi(n-1, by, from, to)
+  14. printf("%c %c\n", from, to); return;	//n이 1이 되었기에 if문의 printf를 실행. 13번 종료.
   
   정리하자면:
   
