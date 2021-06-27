@@ -56,7 +56,7 @@ void hanoi(int n, char from, char by, char to)
 if (n == 1)
 {
 	printf("%c %c\n", from, to);
-	return (0);
+	return;
 }
 ```
 
@@ -107,7 +107,7 @@ void hanoi(int n, char from, char by, char to)
 	if (n == 1)
   	{
 		printf("%c %c\n", from, to);
-    		return (0);
+    		return;
   	}
 	else
 	{
@@ -150,17 +150,17 @@ int main(void)
   1. hanoi(3, '1', '2', '3') 			//hanoi(3, '1', '2', '3')
   2. hanoi(2, '1', '3', '2') 			//hanoi(n-1, from, to, by)
   3. hanoi(1, '1', '2', '3')			//hanoi(n-1, from, to, by)
-  4. printf("%c %c\n", from, to); return (0); 	//n이 1이 되었기에 if문의 printf를 실행, 3번 종료
+  4. printf("%c %c\n", from, to); return; 	//n이 1이 되었기에 if문의 printf를 실행, 3번 종료
   5. printf("%c %c\n", from, to); 		//2번으로 돌아감. 2번 종료. 그 밑의 printf를 실행
   6. hanoi(1, '3', '1', '2') 			//hanoi(n-1, by, from, to)
-  7. printf("%c %c\n", from, to); return (0);	//n이 1이 되었기에 if문의 printf를 실행, 6번 종료
+  7. printf("%c %c\n", from, to); return;	//n이 1이 되었기에 if문의 printf를 실행, 6번 종료
   8. printf("%c %c\n", from, to);		//1번으로 되돌아감. 1번 종료. 그 밑의 printf를 실행. 
   9. hanoi(2, '2', '1', '3')			//hanoi(n-1, by, from, to)
   10. hanoi(1, '2', '3', '1')			//hanoi(n-1, from, to, by)
-  11. printf("%c %c\n", from, to); return (0);	//n이 1이 되었기에 if문의 printf를 실행, 10번 종료
+  11. printf("%c %c\n", from, to); return;	//n이 1이 되었기에 if문의 printf를 실행, 10번 종료
   12. printf("%c %c\n", from, to);		//9번으로 되돌아감. 9번 종료. 그 밑의 printf를 실행.
   13. hanoi(1, '1', '2', '3')			//hanoi(n-1, by, from, to)
-  14. printf("%c %c\n", from, to); return (0);  //n이 1이 되었기에 if문의 printf를 실행. 13번 종료.
+  14. printf("%c %c\n", from, to); return;	//n이 1이 되었기에 if문의 printf를 실행. 13번 종료.
   
   정리하자면:
   
