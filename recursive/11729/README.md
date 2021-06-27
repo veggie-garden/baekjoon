@@ -41,7 +41,7 @@
 같은 과정을 반복하기 때문에 재귀를 사용해서 풀면 됩니다.
 
 ## 문제 풀이
-그럼 규칙을 알았으니, 함수를 만들어 봅시다.
+그럼 규칙을 알았으니, 함수를 만들어 봅시다.\n
 c:
 ```c
 void hanoi(int n, char from, char by, char to)
@@ -51,12 +51,12 @@ void hanoi(int n, char from, char by, char to)
 ```
 python:
 ```python
-def hanoi(n, first, second, thrid) //파이썬은 from이라는 함수가 이미 존재하기에 first, second, thrid 이라는 변수명으로 대체합니다.
+def hanoi(n, first, second, thrid) #파이썬은 from이라는 함수가 이미 존재하기에 first, second, thrid 이라는 변수명으로 대체합니다.
 ```
 
 재귀 함수에서 중요한 것은 탈출 조건입니다. 
 단계별로 옮길 수 있는 원반이 하나만 남았을 때, 재귀를 탈출하게 만드면 됩니다.
-이 말을 정리하자면, n - 1개의 원반을 계속해서 이동하며 재귀를 구성한 것이기 때문에, 이동할 수 있는 원반이 1개가 남았을 경우, 즉 n이 1이 된다면 탈출하게 만들면 됩니다. 
+이 말을 정리하자면, n - 1개의 원반을 계속해서 이동하며 재귀를 구성한 것이기 때문에, 이동할 수 있는 원반이 1개가 남았을 경우, 즉 n이 1이 된다면 탈출하게 만들면 됩니다. \n
 c:
 ```c
 if (n == 1)
@@ -85,7 +85,7 @@ if n == 1:
 1. from에 있는 가장 큰 원반을 제외한 모든 원반(n - 1)개를 by로 옮긴다.
 hanoi(int n, char from, char by, char to) 함수를 설명하자면, n개의 원반을, 이 기둥에서, 이 기둥을 통해, 이 기둥으로 옮긴다 라고 할 수 있죠. 
 우리는 그럼 from에 있는 n-1개의 원반을, by로 옮겨야 합니다. 그럼 아래와 같이 정리할 수 있습니다.
-from에 있는 가장 큰 원반을 제외한 모든 원반(n - 1)개를 by로 옮긴다 => hanoi(n - 1, from, to, by)
+from에 있는 가장 큰 원반을 제외한 모든 원반(n - 1)개를 by로 옮긴다 => hanoi(n - 1, from, to, by)\n
 c:
 ```c 
 hanoi(n - 1, from, to, by)
@@ -97,7 +97,7 @@ hanoi(n - 1, first, thrid, second)
 
 2. from에 있는 가장 큰 원반을 to로 옮긴다.
 위의 코드를 통해서 n-1개의 원반이 모두 by로 옮겨졌습니다.
-그래서 마지막 가장 큰 원반만 남았습니다. 옮기죠.
+그래서 마지막 가장 큰 원반만 남았습니다. 옮기죠.\n
 c:
 ```c 
 printf("%c %c\n", from, to); 
@@ -107,7 +107,7 @@ python:
 print(first, thrid)
 ```
 3. by에 있는 가장 큰 원반을 제외한 모든 원반(n - 1)개를 to로 옮긴다.
-가장 큰 원반을 옮겼으니, 우리는 다시 n-1개의 원반을 to로 옮겨야 합니다. 옮깁시다.
+가장 큰 원반을 옮겼으니, 우리는 다시 n-1개의 원반을 to로 옮겨야 합니다. 옮깁시다.\n
 c:
 ```c 
 hanoi(n - 1, by, from, to); 
@@ -117,7 +117,7 @@ python:
 hanoi(n - 1, second, first, thrid)
 ```
   
-정리하면 이렇게 됩니다:
+정리하면 이렇게 됩니다:\n
 c:
 ```c
 else
@@ -136,7 +136,7 @@ python:
 ```
 
 ### 최종 코드
-그래서 지금까지 나온 코드를 모두 합치면 이렇게 됩니다.
+그래서 지금까지 나온 코드를 모두 합치면 이렇게 됩니다.\n
 c:
 ```c
 void hanoi(int n, char from, char by, char to)
@@ -166,7 +166,7 @@ def hanoi(n, first, second, thrid):
         hanoi(n-1, second, first, thrid)
 ```
 
-자, 이제 함수를 사용하기 위해서 main문을 만들겠습니다.
+자, 이제 함수를 사용하기 위해서 main문을 만들겠습니다.\n
 c:
 ```c
 int main(void)
