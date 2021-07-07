@@ -222,7 +222,7 @@ hanoi(n, '1', '2', '3')
   
   정리하자면:
   
-  <img src="/recursive/11729/11729.png" width="60%" background-color="white">
+  <img src="/recursive/11729/11729.png" width="60%" background="white">
   
   이렇게 됩니다. 
   
